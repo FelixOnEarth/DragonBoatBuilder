@@ -1,16 +1,16 @@
 package com.dragonboatbuilder.persons;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
+import com.dragonboatbuilder.tools.Date;
 
-public class Racer{
+public class Racer {
+
     private String forename;
     private String surname;
     private String nickname;
     private String email;
     private String position;
     private Double weight;
-    private GregorianCalendar birth;
+    private Date birth;
 
     public Racer() {
     }
@@ -63,8 +63,15 @@ public class Racer{
         this.weight = Weight;
     }
 
-    public GregorianCalendar getBirth() {
+    public Date getBirth() {
         return birth;
+    }
+
+    public int getBirthYear() {
+        int i;
+        System.out.println(birth.getYear());
+        i = birth.getYear();
+        return i;
     }
 
     public void setBirth(String Birth) {
@@ -75,11 +82,11 @@ public class Racer{
         int i0 = Integer.parseInt(s[0]); //Day
         int i1 = Integer.parseInt(s[1]); //Month
         int i2 = Integer.parseInt(s[2]); //Year
-        GregorianCalendar calendar = new GregorianCalendar(i2, i1, i0); //Year,Month,Day of Month
-        
-        System.out.println(calendar);
-        this.birth = calendar;
+        Date date = new Date(i2, i1, i0); //Year,Month,Day of Month
+
+        System.out.println(date);
+        this.birth = date;
     }
-    
+
     
 }
