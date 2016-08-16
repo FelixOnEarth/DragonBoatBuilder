@@ -261,6 +261,15 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton_NewRacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_NewRacerActionPerformed
         // TODO add your handling code here:
+        String str = "";
+        jTextField_forename.setText(str);
+        jTextField_surname.setText(str);
+        jTextField_nickname.setText(str);
+        jTextField_email.setText(str);
+        jTextField_position.setText(str);
+        jTextField_weight.setText(str);
+        jTextField_birth.setText(str);
+        jLabel_note.setText(str);
         jDialog_NewRacer.setVisible(true);
     }//GEN-LAST:event_jButton_NewRacerActionPerformed
 
@@ -307,8 +316,8 @@ public class Menu extends javax.swing.JFrame {
             racer.setEmail(email);
             racer.setWeight(weight);
             racer.setBirth(birth);
-            
         }
+        jDialog_NewRacer.dispose();
     }//GEN-LAST:event_jButton_OkActionPerformed
 
     private void jTextField_positionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_positionActionPerformed
@@ -330,7 +339,7 @@ public class Menu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

@@ -69,24 +69,22 @@ public class Racer {
 
     public int getBirthYear() {
         int i;
-        System.out.println(birth.getYear());
         i = birth.getYear();
         return i;
     }
 
     public void setBirth(String Birth) {
-        System.out.println(Birth);
-        String[] s;//DD.MM.YYYY
-        String str = Birth.replace(".", "-");
-        s = str.split("-");
-        int i0 = Integer.parseInt(s[0]); //Day
-        int i1 = Integer.parseInt(s[1]); //Month
-        int i2 = Integer.parseInt(s[2]); //Year
-        Date date = new Date(i2, i1, i0); //Year,Month,Day of Month
+        if (!Birth.equals("")) {
+            String[] s;//DD.MM.YYYY
+            String str = Birth.replace(".", "-");
+            s = str.split("-");
+            int i0 = Integer.parseInt(s[0]); //Day
+            int i1 = Integer.parseInt(s[1]); //Month
+            int i2 = Integer.parseInt(s[2]); //Year
+            Date date = new Date(i2, i1, i0); //Year,Month,Day of Month
 
-        System.out.println(date);
-        this.birth = date;
+            this.birth = date;
+        }
     }
 
-    
 }

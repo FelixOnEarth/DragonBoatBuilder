@@ -25,6 +25,7 @@ public class DragonboatBuilder {
         Menu menu = new Menu();
         menu.setVisible(true);
         
+        System.out.println("DragonboatBuilder closed");
     }
     
 }
