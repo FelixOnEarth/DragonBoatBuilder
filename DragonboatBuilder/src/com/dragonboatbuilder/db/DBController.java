@@ -1,24 +1,23 @@
 package com.dragonboatbuilder.db;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-class DBController {
+public class DBController {
 
     private static final DBController DBCONTROLLER = new DBController();
     private static Connection connection;
-    private static final String DB_PATH = System.getProperty("user.home") + "/" + "test.db";
+    private static final String DB_PATH = System.getProperty("user.home") + "/" + "DragonboatBuilder.db";
 
     static {
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
-            System.err.println("Fehler beim Laden des JDBC-Treiber");
+            System.err.println("Error: Can't load JDBC-Driver");
             e.printStackTrace();
         }
     }

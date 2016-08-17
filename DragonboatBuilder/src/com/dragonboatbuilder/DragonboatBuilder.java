@@ -6,6 +6,7 @@
 package com.dragonboatbuilder;
 
 import com.dragonboatbuilder.gui.Menu;
+import com.dragonboatbuilder.db.DBController;
 
 
 
@@ -24,6 +25,8 @@ public class DragonboatBuilder {
         
         Menu menu = new Menu();
         menu.setVisible(true);
+        
+        DBController dbc = new DBController.getInstance();
         
         System.out.println("DragonboatBuilder closed");
     }
