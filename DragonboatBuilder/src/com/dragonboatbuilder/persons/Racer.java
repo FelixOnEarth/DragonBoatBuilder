@@ -4,6 +4,7 @@ import com.dragonboatbuilder.tools.Date;
 
 public class Racer {
 
+    private int id;
     private String forename;
     private String surname;
     private String nickname;
@@ -11,8 +12,18 @@ public class Racer {
     private String position;
     private Double weight;
     private Date birth;
+    private boolean active;
+    private String description;
 
     public Racer() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getForename() {
@@ -71,6 +82,22 @@ public class Racer {
         int i;
         i = birth.getYear();
         return i;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setBirth(String Birth) {

@@ -23,12 +23,10 @@ public class DragonboatBuilder {
         // TODO code application logic here
         System.out.println("Starting...");
         
+        DBController dbcontroller = new DBController();
+        
         Menu menu = new Menu();
         menu.setVisible(true);
-        
-        DBController dbc = new DBController.getInstance();
-        
-        System.out.println("DragonboatBuilder closed");
     }
     
 }
