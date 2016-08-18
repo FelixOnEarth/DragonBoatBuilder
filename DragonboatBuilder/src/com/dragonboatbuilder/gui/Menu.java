@@ -74,10 +74,8 @@ public class Menu extends javax.swing.JFrame {
         jDialog_NewRacer.setTitle("DragonboatBuilder: NewRacer");
         jDialog_NewRacer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jDialog_NewRacer.setLocationByPlatform(true);
-        jDialog_NewRacer.setMaximumSize(new java.awt.Dimension(520, 500));
         jDialog_NewRacer.setMinimumSize(new java.awt.Dimension(520, 500));
         jDialog_NewRacer.setModal(true);
-        jDialog_NewRacer.setPreferredSize(new java.awt.Dimension(500, 501));
 
         jButton_Ok.setText("OK");
         jButton_Ok.addActionListener(new java.awt.event.ActionListener() {
