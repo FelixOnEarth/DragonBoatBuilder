@@ -52,9 +52,12 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_description = new javax.swing.JTextArea();
         jLabel_description = new javax.swing.JLabel();
+        jLabel_birthnote = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jDialog_AllRacers = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jDialog_BuildBoat = new javax.swing.JDialog();
         jButton_Build = new javax.swing.JButton();
         jButton_Show = new javax.swing.JButton();
         jButton_NewRacer = new javax.swing.JButton();
@@ -74,8 +77,10 @@ public class Menu extends javax.swing.JFrame {
         jDialog_NewRacer.setTitle("DragonboatBuilder: NewRacer");
         jDialog_NewRacer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jDialog_NewRacer.setLocationByPlatform(true);
-        jDialog_NewRacer.setMinimumSize(new java.awt.Dimension(520, 500));
+        jDialog_NewRacer.setMinimumSize(new java.awt.Dimension(500, 500));
         jDialog_NewRacer.setModal(true);
+        jDialog_NewRacer.setPreferredSize(new java.awt.Dimension(500, 500));
+        jDialog_NewRacer.setResizable(false);
 
         jButton_Ok.setText("OK");
         jButton_Ok.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +134,12 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel_description.setText("Description");
 
+        jLabel_birthnote.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel_birthnote.setText("DD.MM.YYYY");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel1.setText("kg (Metric Unit)");
+
         javax.swing.GroupLayout jDialog_NewRacerLayout = new javax.swing.GroupLayout(jDialog_NewRacer.getContentPane());
         jDialog_NewRacer.getContentPane().setLayout(jDialog_NewRacerLayout);
         jDialog_NewRacerLayout.setHorizontalGroup(
@@ -144,26 +155,30 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel_weight)
                     .addComponent(jLabel_birth)
                     .addComponent(jLabel_description))
-                .addGap(18, 18, 18)
                 .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
                         .addGap(363, 363, 363)
                         .addComponent(jLabel_note, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(369, 369, 369))
                     .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
-                        .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton_Ok)
-                            .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox_active)
+                            .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
                                 .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jCheckBox_active, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane1)
                                     .addComponent(jTextField_forename)
-                                    .addComponent(jTextField_surname, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(jTextField_email, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(jTextField_weight, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(jTextField_nickname, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                                    .addComponent(jTextField_birth, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBox_position, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField_surname)
+                                    .addComponent(jTextField_nickname)
+                                    .addComponent(jTextField_email)
+                                    .addComponent(jComboBox_position, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField_weight)
+                                    .addComponent(jTextField_birth))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel_birthnote)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jButton_Ok))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jDialog_NewRacerLayout.setVerticalGroup(
@@ -192,22 +207,25 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_weight)
-                    .addComponent(jTextField_weight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_weight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel_birth)
-                    .addComponent(jTextField_birth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox_active)
+                    .addComponent(jTextField_birth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_birthnote))
                 .addGap(9, 9, 9)
+                .addComponent(jCheckBox_active)
+                .addGap(18, 18, 18)
                 .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel_note)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel_description))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_Ok)
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(jLabel_description)
+                    .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_Ok)
+                            .addComponent(jLabel_note))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jTextField_birth.getAccessibleContext().setAccessibleName("");
@@ -216,6 +234,9 @@ public class Menu extends javax.swing.JFrame {
 
         jDialog_AllRacers.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog_AllRacers.setTitle("DragonboatBuilder: All Racers");
+        jDialog_AllRacers.setLocationByPlatform(true);
+        jDialog_AllRacers.setMinimumSize(new java.awt.Dimension(300, 300));
+        jDialog_AllRacers.setPreferredSize(new java.awt.Dimension(600, 400));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -243,8 +264,20 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout jDialog_BuildBoatLayout = new javax.swing.GroupLayout(jDialog_BuildBoat.getContentPane());
+        jDialog_BuildBoat.getContentPane().setLayout(jDialog_BuildBoatLayout);
+        jDialog_BuildBoatLayout.setHorizontalGroup(
+            jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog_BuildBoatLayout.setVerticalGroup(
+            jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DragonboatBuilder: Menu");
+        setResizable(false);
 
         jButton_Build.setText("Build Boat");
 
@@ -468,8 +501,11 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox_active;
     private javax.swing.JComboBox<String> jComboBox_position;
     private javax.swing.JDialog jDialog_AllRacers;
+    private javax.swing.JDialog jDialog_BuildBoat;
     private javax.swing.JDialog jDialog_NewRacer;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel_birth;
+    private javax.swing.JLabel jLabel_birthnote;
     private javax.swing.JLabel jLabel_description;
     private javax.swing.JLabel jLabel_email;
     private javax.swing.JLabel jLabel_forename;
