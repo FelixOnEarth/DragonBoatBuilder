@@ -7,8 +7,9 @@ package com.dragonboatbuilder;
 
 import com.dragonboatbuilder.gui.Menu;
 import com.dragonboatbuilder.db.DBController;
-
-
+import com.dragonboatbuilder.persons.Racer;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,11 +23,11 @@ public class DragonboatBuilder {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Starting...");
-        
+
         DBController dbcontroller = new DBController();
-        
+
         Menu menu = new Menu();
         menu.setVisible(true);
     }
-    
 }
+

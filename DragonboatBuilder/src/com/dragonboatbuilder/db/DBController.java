@@ -76,25 +76,25 @@ public class DBController {
         try {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS persons (id INTEGER PRIMARY KEY NOT NULL, "
-                    + "forename TEXT, "
-                    + "surname TEXT, "
-                    + "nickname TEXT, "
-                    + "email TEXT, "
-                    + "position TEXT, "
-                    + "weight INTEGER, "
-                    + "birth DATE, "
-                    + "active TEXT, "
-                    + "description TEXT);");
+                    + "forename , "
+                    + "surname , "
+                    + "nickname , "
+                    + "email , "
+                    + "position , "
+                    + "weight , "
+                    + "birth , "
+                    + "active,"
+                    + "description );");
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS teams (id INTEGER PRIMARY KEY NOT NULL, "
-                    + "name TEXT, "
-                    + "tag TEXT, "
+                    + "name , "
+                    + "tag , "
                     + "members, "
                     + "constalations, "
                     + "active, "
                     + "description);");
 
         } catch (SQLException e) {
-            System.err.println(e);
+            System.err.println("SQL ERROR: " + e);
         }
     }
 
@@ -105,7 +105,6 @@ public class DBController {
             Statement stmt = connection.createStatement();
 
             ResultSet rs = stmt.executeQuery("SELECT COUNT (*) FROM persons");
-
             int id = rs.getInt(1);
             id++;
 
@@ -119,13 +118,18 @@ public class DBController {
             prep.setString(8, birth);
             prep.setBoolean(9, active);
             prep.setString(10, description);
-            prep.addBatch();
+            prep.executeUpdate();
 
-            connection.setAutoCommit(false);
-            prep.executeBatch();
-            connection.setAutoCommit(false);
+            Statement stmt2 = connection.createStatement();
+
+            ResultSet rs2 = stmt2.executeQuery("SELECT * FROM persons WHERE id='" + id + "';");
+            if (rs2.getInt("id") == id) {
+                System.out.println("Created successfull new Racer");
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(DBController.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Error:" + ex);
         }
     }
 
@@ -133,31 +137,50 @@ public class DBController {
 
     }
 
-    public Racer[] getPersons() {
-
+    public static Object[][] getPersons() {
+        Object[][] object;
         Statement stmt;
-        Racer[] racer = null;
+        
+        
         try {
+            object = null;
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM persons");
-
+            
             for (int i = 0; rs.next(); i++) {
-                racer[i].setId(rs.getInt(1));
-                racer[i].setForename(rs.getString(2));
-                racer[i].setSurname(rs.getString(3));
-                racer[i].setNickname(rs.getString(4));
-                racer[i].setEmail(rs.getString(5));
-                racer[i].setPosition(rs.getString(6));
-                racer[i].setWeight(rs.getDouble(7));
-                racer[i].setBirth(rs.getString(8));
-                racer[i].setActive(rs.getBoolean(9));
-                racer[i].setDescription(rs.getString(10));
-            }
 
+                object[i][0] = rs.getInt(1); //ID
+                object[i][1] = rs.getString(2); //Forenaem
+                object[i][2] = rs.getString(3); //Surname
+                object[i][3] = rs.getString(4); //Nickname
+                object[i][4] = rs.getString(5); //Email
+                object[i][5] = rs.getString(6); //Position
+                object[i][6] = rs.getDouble(7); //Weight
+                object[i][7] = rs.getString(8); //Birth
+                object[i][8] = rs.getBoolean(9); //Active
+                object[i][9] = rs.getString(10); //Description
+
+                System.out.println(object[i][0]);
+                System.out.println(object[i][1]);
+                System.out.println(object[i][2]);
+                System.out.println(object[i][3]);
+                System.out.println(object[i][4]);
+                System.out.println(object[i][5]);
+                System.out.println(object[i][6]);
+                System.out.println(object[i][7]);
+                System.out.println(object[i][8]);
+                System.out.println(object[i][9]);
+
+                return object;
+
+            }
         } catch (SQLException ex) {
             Logger.getLogger(DBController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
+            object = null;
+
         }
 
-        return racer;
+        return object;
     }
 }

@@ -7,6 +7,7 @@ package com.dragonboatbuilder.gui;
 
 import com.dragonboatbuilder.db.DBController;
 import com.dragonboatbuilder.persons.Racer;
+import com.dragonboatbuilder.tools.EmailAddressCheck;
 import java.awt.event.FocusEvent;
 
 /**
@@ -49,10 +50,10 @@ public class Menu extends javax.swing.JFrame {
         jTextField_birth = new javax.swing.JTextField();
         jLabel_note = new javax.swing.JLabel();
         jCheckBox_active = new javax.swing.JCheckBox();
+        jLabel_birthnote = new javax.swing.JLabel();
+        jLabel_description = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_description = new javax.swing.JTextArea();
-        jLabel_description = new javax.swing.JLabel();
-        jLabel_birthnote = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jDialog_AllRacers = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -76,10 +77,8 @@ public class Menu extends javax.swing.JFrame {
         jDialog_NewRacer.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog_NewRacer.setTitle("DragonboatBuilder: NewRacer");
         jDialog_NewRacer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jDialog_NewRacer.setLocationByPlatform(true);
         jDialog_NewRacer.setMinimumSize(new java.awt.Dimension(500, 500));
         jDialog_NewRacer.setModal(true);
-        jDialog_NewRacer.setPreferredSize(new java.awt.Dimension(500, 500));
         jDialog_NewRacer.setResizable(false);
 
         jButton_Ok.setText("OK");
@@ -127,18 +126,17 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        jLabel_birthnote.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel_birthnote.setText("DD.MM.YYYY");
+
+        jLabel_description.setText("Description");
+
         jTextArea_description.setColumns(20);
         jTextArea_description.setRows(5);
         jTextArea_description.setPreferredSize(new java.awt.Dimension(200, 80));
         jScrollPane1.setViewportView(jTextArea_description);
 
-        jLabel_description.setText("Description");
-
-        jLabel_birthnote.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel_birthnote.setText("DD.MM.YYYY");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        jLabel1.setText("kg (Metric Unit)");
+        jLabel1.setText("kg");
 
         javax.swing.GroupLayout jDialog_NewRacerLayout = new javax.swing.GroupLayout(jDialog_NewRacer.getContentPane());
         jDialog_NewRacer.getContentPane().setLayout(jDialog_NewRacerLayout);
@@ -155,31 +153,26 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jLabel_weight)
                     .addComponent(jLabel_birth)
                     .addComponent(jLabel_description))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox_active)
                     .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
-                        .addGap(363, 363, 363)
-                        .addComponent(jLabel_note, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(369, 369, 369))
-                    .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jTextField_forename)
+                            .addComponent(jTextField_surname)
+                            .addComponent(jTextField_nickname)
+                            .addComponent(jTextField_email)
+                            .addComponent(jComboBox_position, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField_weight)
+                            .addComponent(jTextField_birth)
+                            .addComponent(jLabel_note, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox_active)
-                            .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
-                                .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jTextField_forename)
-                                    .addComponent(jTextField_surname)
-                                    .addComponent(jTextField_nickname)
-                                    .addComponent(jTextField_email)
-                                    .addComponent(jComboBox_position, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField_weight)
-                                    .addComponent(jTextField_birth))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel_birthnote)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jButton_Ok))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButton_Ok)
+                            .addComponent(jLabel_birthnote, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
         jDialog_NewRacerLayout.setVerticalGroup(
             jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,10 +215,10 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jDialog_NewRacerLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jDialog_NewRacerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton_Ok)
                             .addComponent(jLabel_note))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTextField_birth.getAccessibleContext().setAccessibleName("");
@@ -234,17 +227,15 @@ public class Menu extends javax.swing.JFrame {
 
         jDialog_AllRacers.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog_AllRacers.setTitle("DragonboatBuilder: All Racers");
-        jDialog_AllRacers.setLocationByPlatform(true);
-        jDialog_AllRacers.setMinimumSize(new java.awt.Dimension(300, 300));
-        jDialog_AllRacers.setPreferredSize(new java.awt.Dimension(600, 400));
+        jDialog_AllRacers.setMinimumSize(new java.awt.Dimension(700, 300));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {1, 2, 3, 4},
-                {1, 2, 3, 4},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
+            DBController.getPersons()
+            /*new Object [][] {
+
+                {1, 2, 3, 4}
+
+            }*/,
             new String [] {
                 "ID", "Forename", "Surname", "Nickname", "E-Mail", "Position", "Weight [kg]", "Birth", "Active?","Description"
             }
@@ -400,7 +391,6 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton_OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_OkActionPerformed
         // Declarate and initialize all fields
-        String str = "";
         String forename = jTextField_forename.getText();
         String surname = jTextField_surname.getText();
         String nickname = jTextField_nickname.getText();
@@ -412,40 +402,47 @@ public class Menu extends javax.swing.JFrame {
         String description = jTextArea_description.getText();
 
         //Check if Field is empty and convert String to double
-        if (jTextField_weight.getText().equals(str)) {
+        if (jTextField_weight.getText().isEmpty()) {
             weight = 0.0;
         } else {
             weight = Double.parseDouble(jTextField_weight.getText());
         }
 
-        System.out.println(birth);
-        
         //If all fields are empty -> Error
-        if (forename.equals(str)
-            && surname.equals(str)
-            && nickname.equals(str)
-            && email.equals(str)
-            && position.equals(str)
-            && weight == 0
-            && birth.equals(str)) {
+        if (forename.isEmpty()
+                && surname.isEmpty()
+                && nickname.isEmpty()
+                && email.isEmpty()
+                && position.isEmpty()
+                && weight == 0
+                && birth.isEmpty()) {
             jLabel_note.setText("All fields empty!");
             jLabel_note.setVisible(true);
+            System.out.println("All fields empty!");
         }
-        //or all name fields are empty -> Error
-        else if (forename.equals(str)
-            && surname.equals(str)
-            && nickname.equals(str)) {
+        //Is this jTextField_email a Email Address?
+        EmailAddressCheck eac = new EmailAddressCheck();
+        if (!email.isEmpty() && !eac.emailCheck(email)) {
+            jLabel_note.setText("Enter a valid Email Address");
+            jLabel_note.setVisible(true);
+        } //or all name fields are empty -> Error
+        else if (forename.isEmpty()
+                && surname.isEmpty()
+                && nickname.isEmpty()) {
             jLabel_note.setText("Need a name!");
             jLabel_note.setVisible(true);
         } else {
-            
+
             //Tell DB about the new person
-            DBController.getInstance().insertPerson(forename, surname, nickname, email, position, weight, birth,active, description);
-            
+            DBController.getInstance().insertPerson(forename, surname, nickname, email, position, weight, birth, active, description);
+
             //All fine, we don't need a Note.
             jLabel_note.setVisible(false);
+
+            //Close Dialog
+            jDialog_NewRacer.dispose();
         }
-        jDialog_NewRacer.dispose();
+
     }//GEN-LAST:event_jButton_OkActionPerformed
 
     private void jButton_ShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ShowActionPerformed

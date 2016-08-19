@@ -9,14 +9,10 @@
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Standardcursor"/>
         </Property>
-        <Property name="locationByPlatform" type="boolean" value="true"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[500, 500]"/>
         </Property>
         <Property name="modal" type="boolean" value="true"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[500, 500]"/>
-        </Property>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
@@ -35,38 +31,30 @@
                       <Component id="jLabel_birth" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel_description" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="363" max="-2" attributes="0"/>
-                          <Component id="jLabel_note" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="369" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jCheckBox_active" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jCheckBox_active" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField_forename" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField_surname" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField_nickname" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField_email" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jComboBox_position" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField_weight" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField_birth" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel_birthnote" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton_Ok" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField_forename" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField_surname" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField_nickname" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField_email" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jComboBox_position" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField_weight" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextField_birth" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel_note" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jButton_Ok" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_birthnote" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
+                  <EmptySpace pref="448" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -118,13 +106,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton_Ok" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel_note" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jButton_Ok" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel_note" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                  <EmptySpace pref="31" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -226,6 +214,19 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox_activeActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel_birthnote">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="11" style="2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="DD.MM.YYYY"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel_description">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Description"/>
+          </Properties>
+        </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -244,25 +245,9 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel_description">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Description"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel_birthnote">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="2"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="DD.MM.YYYY"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="2"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="kg (Metric Unit)"/>
+            <Property name="text" type="java.lang.String" value="kg"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -271,12 +256,8 @@
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="title" type="java.lang.String" value="DragonboatBuilder: All Racers"/>
-        <Property name="locationByPlatform" type="boolean" value="true"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[300, 300]"/>
-        </Property>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[600, 400]"/>
+          <Dimension value="[700, 300]"/>
         </Property>
       </Properties>
 
@@ -306,7 +287,7 @@
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {1, 2, 3, 4},&#xa;        {1, 2, 3, 4},&#xa;        {null, null, null, null},&#xa;        {null, null, null, null}&#xa;    },&#xa;    new String [] {&#xa;        &quot;ID&quot;, &quot;Forename&quot;, &quot;Surname&quot;, &quot;Nickname&quot;, &quot;E-Mail&quot;, &quot;Position&quot;, &quot;Weight [kg]&quot;, &quot;Birth&quot;, &quot;Active?&quot;,&quot;Description&quot;&#xa;    }&#xa;)" type="code"/>
+                  <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    DBController.getPersons()&#xa;    /*new Object [][] {&#xa;&#xa;        {1, 2, 3, 4}&#xa;&#xa;    }*/,&#xa;    new String [] {&#xa;        &quot;ID&quot;, &quot;Forename&quot;, &quot;Surname&quot;, &quot;Nickname&quot;, &quot;E-Mail&quot;, &quot;Position&quot;, &quot;Weight [kg]&quot;, &quot;Birth&quot;, &quot;Active?&quot;,&quot;Description&quot;&#xa;    }&#xa;)" type="code"/>
                 </Property>
               </Properties>
             </Component>
