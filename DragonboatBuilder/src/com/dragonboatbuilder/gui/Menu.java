@@ -59,6 +59,7 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jDialog_BuildBoat = new javax.swing.JDialog();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jButton_Build = new javax.swing.JButton();
         jButton_Show = new javax.swing.JButton();
         jButton_NewRacer = new javax.swing.JButton();
@@ -260,15 +261,23 @@ public class Menu extends javax.swing.JFrame {
         jDialog_BuildBoat.setTitle("DragonboatBuilder: Build a Boat");
         jDialog_BuildBoat.setMinimumSize(new java.awt.Dimension(700, 900));
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "20", "50"}));
+
         javax.swing.GroupLayout jDialog_BuildBoatLayout = new javax.swing.GroupLayout(jDialog_BuildBoat.getContentPane());
         jDialog_BuildBoat.getContentPane().setLayout(jDialog_BuildBoatLayout);
         jDialog_BuildBoatLayout.setHorizontalGroup(
             jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jDialog_BuildBoatLayout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(447, Short.MAX_VALUE))
         );
         jDialog_BuildBoatLayout.setVerticalGroup(
             jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
+            .addGroup(jDialog_BuildBoatLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(420, 420, 420))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -511,6 +520,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton_Ok;
     private javax.swing.JButton jButton_Show;
     private javax.swing.JCheckBox jCheckBox_active;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox_position;
     private javax.swing.JDialog jDialog_AllRacers;
     private javax.swing.JDialog jDialog_BuildBoat;
