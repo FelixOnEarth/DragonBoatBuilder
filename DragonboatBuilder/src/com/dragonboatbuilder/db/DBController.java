@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.lang.Object;
 
 /**
  *
@@ -138,15 +139,22 @@ public class DBController {
     }
 
     public static Object[][] getPersons() {
-        Object[][] object;
+
         Statement stmt;
-        
-        
+        Statement stmt_count;
         try {
-            object = null;
             stmt = connection.createStatement();
+            stmt_count = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM persons");
+            // object[0][0] = rs.getInt("id");
+  
+            ResultSet rs_count = stmt_count.executeQuery("SELECT COUNT (*) FROM persons");
             
+            
+            
+            Object[][] object = new Object[rs_count.getInt(1)][10];
+
+
             for (int i = 0; rs.next(); i++) {
 
                 object[i][0] = rs.getInt(1); //ID
@@ -160,27 +168,16 @@ public class DBController {
                 object[i][8] = rs.getBoolean(9); //Active
                 object[i][9] = rs.getString(10); //Description
 
-                System.out.println(object[i][0]);
-                System.out.println(object[i][1]);
-                System.out.println(object[i][2]);
-                System.out.println(object[i][3]);
-                System.out.println(object[i][4]);
-                System.out.println(object[i][5]);
-                System.out.println(object[i][6]);
-                System.out.println(object[i][7]);
-                System.out.println(object[i][8]);
-                System.out.println(object[i][9]);
-
-                return object;
+           
 
             }
+            return object;
         } catch (SQLException ex) {
             Logger.getLogger(DBController.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex);
-            object = null;
+            return null;
 
         }
 
-        return object;
     }
 }

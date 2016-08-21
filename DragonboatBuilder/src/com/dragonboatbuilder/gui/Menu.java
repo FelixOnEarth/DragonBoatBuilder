@@ -227,7 +227,7 @@ public class Menu extends javax.swing.JFrame {
 
         jDialog_AllRacers.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog_AllRacers.setTitle("DragonboatBuilder: All Racers");
-        jDialog_AllRacers.setMinimumSize(new java.awt.Dimension(700, 300));
+        jDialog_AllRacers.setMinimumSize(new java.awt.Dimension(800, 300));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             DBController.getPersons()
@@ -240,6 +240,7 @@ public class Menu extends javax.swing.JFrame {
                 "ID", "Forename", "Surname", "Nickname", "E-Mail", "Position", "Weight [kg]", "Birth", "Active?","Description"
             }
         ));
+        jTable1.setEnabled(false);
         jScrollPane2.setViewportView(jTable1);
 
         javax.swing.GroupLayout jDialog_AllRacersLayout = new javax.swing.GroupLayout(jDialog_AllRacers.getContentPane());
@@ -255,22 +256,32 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jDialog_BuildBoat.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jDialog_BuildBoat.setTitle("DragonboatBuilder: Build a Boat");
+        jDialog_BuildBoat.setMinimumSize(new java.awt.Dimension(700, 900));
+
         javax.swing.GroupLayout jDialog_BuildBoatLayout = new javax.swing.GroupLayout(jDialog_BuildBoat.getContentPane());
         jDialog_BuildBoat.getContentPane().setLayout(jDialog_BuildBoatLayout);
         jDialog_BuildBoatLayout.setHorizontalGroup(
             jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jDialog_BuildBoatLayout.setVerticalGroup(
             jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 487, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DragonboatBuilder: Menu");
+        setIconImages(null);
         setResizable(false);
 
         jButton_Build.setText("Build Boat");
+        jButton_Build.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BuildActionPerformed(evt);
+            }
+        });
 
         jButton_Show.setText("Show Boat");
         jButton_Show.addActionListener(new java.awt.event.ActionListener() {
@@ -402,12 +413,11 @@ public class Menu extends javax.swing.JFrame {
         String description = jTextArea_description.getText();
 
         //Check if Field is empty and convert String to double
-        if (jTextField_weight.getText().isEmpty()) {
-            weight = 0.0;
-        } else {
+        if (!jTextField_weight.getText().isEmpty()) {
             weight = Double.parseDouble(jTextField_weight.getText());
+        }else{
+            weight = 0.0;
         }
-
         //If all fields are empty -> Error
         if (forename.isEmpty()
                 && surname.isEmpty()
@@ -453,6 +463,11 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDialog_AllRacers.setVisible(true);
     }//GEN-LAST:event_jButton_AllRacersActionPerformed
+
+    private void jButton_BuildActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuildActionPerformed
+        // TODO add your handling code here:
+        jDialog_BuildBoat.setVisible(true);
+    }//GEN-LAST:event_jButton_BuildActionPerformed
 
     /**
      * @param args the command line arguments
