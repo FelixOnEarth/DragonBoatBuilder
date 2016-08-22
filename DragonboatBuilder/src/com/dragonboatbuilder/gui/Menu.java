@@ -6,7 +6,7 @@
 package com.dragonboatbuilder.gui;
 
 import com.dragonboatbuilder.db.DBController;
-import com.dragonboatbuilder.persons.Racer;
+import com.dragonboatbuilder.physicalObjects.Racer;
 import com.dragonboatbuilder.tools.EmailAddressCheck;
 import java.awt.event.FocusEvent;
 
@@ -59,11 +59,27 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jDialog_BuildBoat = new javax.swing.JDialog();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel_properties = new javax.swing.JPanel();
+        jButton_ok = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox_Team = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox_BoatSize = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox_AgeGroup = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jButton_Build = new javax.swing.JButton();
         jButton_Show = new javax.swing.JButton();
         jButton_NewRacer = new javax.swing.JButton();
         jButton_AllRacers = new javax.swing.JButton();
+        jButton_UpdateRacer = new javax.swing.JButton();
+        jButton_UpdateBoat = new javax.swing.JButton();
+        jButton_ShowTeam = new javax.swing.JButton();
+        jButton_BuildTeam = new javax.swing.JButton();
+        jButton_UpdateTeam = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu_File = new javax.swing.JMenu();
         jMenuItem_OpenDatabase = new javax.swing.JMenuItem();
@@ -259,30 +275,101 @@ public class Menu extends javax.swing.JFrame {
 
         jDialog_BuildBoat.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jDialog_BuildBoat.setTitle("DragonboatBuilder: Build a Boat");
-        jDialog_BuildBoat.setMinimumSize(new java.awt.Dimension(700, 900));
+        jDialog_BuildBoat.setMinimumSize(new java.awt.Dimension(400, 300));
+        jDialog_BuildBoat.setPreferredSize(new java.awt.Dimension(400, 387));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "20", "50"}));
+        jButton_ok.setText("OK");
+        jButton_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_okActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Name");
+
+        jLabel3.setText("Team");
+
+        jComboBox_Team.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel4.setText("Boat Size");
+
+        jComboBox_BoatSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10 Paddlers", "20 Paddlers", "50 Paddlers"}));
+
+        jLabel5.setText("Age Group");
+
+        jComboBox_AgeGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Junior", "Premium", "Master +40", "Master +50" }));
+
+        javax.swing.GroupLayout jPanel_propertiesLayout = new javax.swing.GroupLayout(jPanel_properties);
+        jPanel_properties.setLayout(jPanel_propertiesLayout);
+        jPanel_propertiesLayout.setHorizontalGroup(
+            jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_propertiesLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel_propertiesLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox_Team, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_propertiesLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel_propertiesLayout.createSequentialGroup()
+                        .addGroup(jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox_BoatSize, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox_AgeGroup, 0, 171, Short.MAX_VALUE))))
+                .addContainerGap(142, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_propertiesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton_ok)
+                .addContainerGap())
+        );
+        jPanel_propertiesLayout.setVerticalGroup(
+            jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_propertiesLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jComboBox_Team, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jComboBox_BoatSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_propertiesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jComboBox_AgeGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(jButton_ok)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Properties", jPanel_properties);
+        jTabbedPane1.addTab("Boat", jScrollPane3);
 
         javax.swing.GroupLayout jDialog_BuildBoatLayout = new javax.swing.GroupLayout(jDialog_BuildBoat.getContentPane());
         jDialog_BuildBoat.getContentPane().setLayout(jDialog_BuildBoatLayout);
         jDialog_BuildBoatLayout.setHorizontalGroup(
             jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog_BuildBoatLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(447, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
         );
         jDialog_BuildBoatLayout.setVerticalGroup(
             jDialog_BuildBoatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog_BuildBoatLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(420, 420, 420))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DragonboatBuilder: Menu");
         setIconImages(null);
+        setMinimumSize(new java.awt.Dimension(430, 0));
         setResizable(false);
 
         jButton_Build.setText("Build Boat");
@@ -292,7 +379,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton_Show.setText("Show Boat");
+        jButton_Show.setText("Show Boats");
         jButton_Show.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ShowActionPerformed(evt);
@@ -306,10 +393,45 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton_AllRacers.setText("All Racers");
+        jButton_AllRacers.setText("Show Racers");
         jButton_AllRacers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_AllRacersActionPerformed(evt);
+            }
+        });
+
+        jButton_UpdateRacer.setText("Update Racer");
+        jButton_UpdateRacer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_UpdateRacerActionPerformed(evt);
+            }
+        });
+
+        jButton_UpdateBoat.setText("Update Boat");
+        jButton_UpdateBoat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_UpdateBoatActionPerformed(evt);
+            }
+        });
+
+        jButton_ShowTeam.setText("Show Teams");
+        jButton_ShowTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_ShowTeamActionPerformed(evt);
+            }
+        });
+
+        jButton_BuildTeam.setText("Build Team");
+        jButton_BuildTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_BuildTeamActionPerformed(evt);
+            }
+        });
+
+        jButton_UpdateTeam.setText("Update Teams");
+        jButton_UpdateTeam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_UpdateTeamActionPerformed(evt);
             }
         });
 
@@ -353,26 +475,50 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton_Show, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(jButton_AllRacers, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(jButton_Build, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton_NewRacer, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jButton_Show, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_Build, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton_AllRacers, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton_NewRacer, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_UpdateRacer, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_UpdateBoat, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton_ShowTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton_BuildTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton_UpdateTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jButton_Build, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_Build, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_Show, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_UpdateBoat, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_Show, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_ShowTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_BuildTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_UpdateTeam, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_NewRacer, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_AllRacers, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_AllRacers, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_NewRacer, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_UpdateRacer, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
@@ -478,6 +624,30 @@ public class Menu extends javax.swing.JFrame {
         jDialog_BuildBoat.setVisible(true);
     }//GEN-LAST:event_jButton_BuildActionPerformed
 
+    private void jButton_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_okActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_okActionPerformed
+
+    private void jButton_UpdateRacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UpdateRacerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_UpdateRacerActionPerformed
+
+    private void jButton_UpdateBoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UpdateBoatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_UpdateBoatActionPerformed
+
+    private void jButton_ShowTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ShowTeamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_ShowTeamActionPerformed
+
+    private void jButton_BuildTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_BuildTeamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_BuildTeamActionPerformed
+
+    private void jButton_UpdateTeamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_UpdateTeamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_UpdateTeamActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -489,7 +659,7 @@ public class Menu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -516,16 +686,28 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_AllRacers;
     private javax.swing.JButton jButton_Build;
+    private javax.swing.JButton jButton_BuildTeam;
     private javax.swing.JButton jButton_NewRacer;
     private javax.swing.JButton jButton_Ok;
     private javax.swing.JButton jButton_Show;
+    private javax.swing.JButton jButton_ShowTeam;
+    private javax.swing.JButton jButton_UpdateBoat;
+    private javax.swing.JButton jButton_UpdateRacer;
+    private javax.swing.JButton jButton_UpdateTeam;
+    private javax.swing.JButton jButton_ok;
     private javax.swing.JCheckBox jCheckBox_active;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox_AgeGroup;
+    private javax.swing.JComboBox<String> jComboBox_BoatSize;
+    private javax.swing.JComboBox<String> jComboBox_Team;
     private javax.swing.JComboBox<String> jComboBox_position;
     private javax.swing.JDialog jDialog_AllRacers;
     private javax.swing.JDialog jDialog_BuildBoat;
     private javax.swing.JDialog jDialog_NewRacer;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel_birth;
     private javax.swing.JLabel jLabel_birthnote;
     private javax.swing.JLabel jLabel_description;
@@ -546,10 +728,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu_About;
     private javax.swing.JMenu jMenu_File;
     private javax.swing.JMenu jMenu_Help;
+    private javax.swing.JPanel jPanel_properties;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea_description;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField_birth;
     private javax.swing.JTextField jTextField_email;
     private javax.swing.JTextField jTextField_forename;

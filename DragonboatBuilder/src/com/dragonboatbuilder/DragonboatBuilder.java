@@ -7,7 +7,7 @@ package com.dragonboatbuilder;
 
 import com.dragonboatbuilder.gui.Menu;
 import com.dragonboatbuilder.db.DBController;
-import com.dragonboatbuilder.persons.Racer;
+import com.dragonboatbuilder.physicalObjects.Racer;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

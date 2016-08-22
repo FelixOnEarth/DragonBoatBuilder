@@ -5,7 +5,7 @@
  */
 package com.dragonboatbuilder.db;
 
-import com.dragonboatbuilder.persons.Racer;
+import com.dragonboatbuilder.physicalObjects.Racer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -88,11 +88,12 @@ public class DBController {
                     + "description );");
             stmt.executeUpdate("CREATE TABLE IF NOT EXISTS teams (id INTEGER PRIMARY KEY NOT NULL, "
                     + "name , "
-                    + "tag , "
                     + "members, "
                     + "constalations, "
                     + "active, "
                     + "description);");
+            stmt.executeQuery("CREATE TABLE IF NOT EXISTS boats (id INTEGER PRIMARY KEY NOT NULL,"+""
+                    + ";");
 
         } catch (SQLException e) {
             System.err.println("SQL ERROR: " + e);

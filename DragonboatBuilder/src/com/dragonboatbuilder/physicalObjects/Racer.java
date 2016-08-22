@@ -1,4 +1,4 @@
-package com.dragonboatbuilder.persons;
+package com.dragonboatbuilder.physicalObjects;
 
 import com.dragonboatbuilder.tools.Date;
 
