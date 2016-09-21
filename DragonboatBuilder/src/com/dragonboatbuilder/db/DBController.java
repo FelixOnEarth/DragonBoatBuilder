@@ -92,9 +92,6 @@ public class DBController {
                     + "constalations, "
                     + "active, "
                     + "description);");
-            stmt.executeQuery("CREATE TABLE IF NOT EXISTS boats (id INTEGER PRIMARY KEY NOT NULL,"+""
-                    + ";");
-
         } catch (SQLException e) {
             System.err.println("SQL ERROR: " + e);
         }
